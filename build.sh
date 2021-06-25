@@ -1,10 +1,9 @@
 start=`date +%s`
 npm run prettify
 
-cd ui;
 npm run build;
-rm -rf webapp_traciex.tgz;
-tar -zcvf webapp_traciex.tgz build;
+rm -rf webapp_swabx.tgz;
+tar -zcvf webapp_swabx.tgz build;
 
 end=`date +%s`
 runtime=$((end-start))
