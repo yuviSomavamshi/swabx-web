@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { navigations, silverFactoryNavigations } from "../../navigations";
+import { navigations } from "../../navigations";
 import { MatxVerticalNav } from "matx";
 import { setLayoutSettings } from "app/redux/actions/LayoutActions";
 import axios from "axios";
@@ -93,15 +93,17 @@ class Sidenav extends Component {
   renderOverlay = () => <div onClick={() => this.updateSidebarMode({ mode: "close" })} className="sidenav__overlay" />;
   render() {
     let mainNav = [];
-    if (localStorage.getItem("loginRole") == null) {
-      window.location.href = "/login";
-    } else {
-      if (localStorage.getItem("loginRole") == "SubAdmin") {
-        mainNav = silverFactoryNavigations;
-      } else {
+
+    let role = localStorage.getItem("loginRole");
+    switch(role){
+      case "Admin":
         mainNav = navigations;
-      }
+      break;
+      default:
+        window.location.href = "/login";
+        return;
     }
+    
     return (
       <Fragment>
         <Scrollbar option={{ suppressScrollX: true }} className="scrollable position-relative">
