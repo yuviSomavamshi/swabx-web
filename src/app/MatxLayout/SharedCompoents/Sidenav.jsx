@@ -95,15 +95,15 @@ class Sidenav extends Component {
     let mainNav = [];
 
     let role = localStorage.getItem("loginRole");
-    switch(role){
+    switch (role) {
       case "Admin":
         mainNav = navigations;
-      break;
+        break;
       default:
         window.location.href = "/login";
         return;
     }
-    
+
     return (
       <Fragment>
         <Scrollbar option={{ suppressScrollX: true }} className="scrollable position-relative">
