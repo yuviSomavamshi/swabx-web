@@ -145,7 +145,7 @@ class CustomerForm extends Component {
                 value={name}
                 variant="outlined"
                 validators={["required", "minStringLength: 4"]}
-                errorMessages={["this field is required"]}
+                errorMessages={["this field is required", "Minimum 4 characters required"]}
               />
               <TextValidator
                 className="mb-16 w-220"
