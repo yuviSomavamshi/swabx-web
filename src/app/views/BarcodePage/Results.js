@@ -37,7 +37,7 @@ const Results = ({ className, barCode, ...rest }) => {
   const [sortBy, setSetSortBy] = useState("createdAt");
 
   const createSortHandler = (property) => (event) => {
-    setOrder(order == "desc" ? "asc" : "desc");
+    setOrder(order === "desc" ? "asc" : "desc");
     setSetSortBy(property);
     rest.handleOrderChange(order);
     rest.handleSortByChange(sortBy);
@@ -58,11 +58,11 @@ const Results = ({ className, barCode, ...rest }) => {
 
   const getStatusColor = (status) => {
     let result = "";
-    if (status == 0) {
+    if (status === 0) {
       result = "grey";
-    } else if (status == 1) {
+    } else if (status === 1) {
       result = "green";
-    } else if (status == 2) {
+    } else if (status === 2) {
       result = "red";
     } else {
       result = "black";
@@ -72,11 +72,11 @@ const Results = ({ className, barCode, ...rest }) => {
 
   const getStatus = (status) => {
     let result = "";
-    if (status == 0) {
+    if (status === 0) {
       result = "Unassigned";
-    } else if (status == 1) {
+    } else if (status === 1) {
       result = "Assigned";
-    } else if (status == 2) {
+    } else if (status === 2) {
       result = "Scrapped";
     } else {
       result = "Unknown";
@@ -190,7 +190,7 @@ const Results = ({ className, barCode, ...rest }) => {
                       </TableCell>
                       <TableCell>
                         <Typography color="textPrimary" variant="body1">
-                          {barCode.status != 0 && moment(barCode.updatedAt).format("DD-MMM-YYYY HH:mm:ss")}
+                          {barCode.status !== 0 && moment(barCode.updatedAt).format("DD-MMM-YYYY HH:mm:ss")}
                         </Typography>
                       </TableCell>
                       <TableCell
@@ -208,7 +208,7 @@ const Results = ({ className, barCode, ...rest }) => {
                         />
                       </TableCell>
                       <TableCell>
-                        {barCode.status == 0 ? (
+                        {barCode.status === 0 ? (
                           <Button
                             style={{
                               color: "white",

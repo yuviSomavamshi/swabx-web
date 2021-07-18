@@ -185,7 +185,7 @@
       var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         var r = (d + Math.random() * 16) % 16 | 0;
         d = Math.floor(d / 16);
-        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
       });
       return uuid;
     };
@@ -209,22 +209,22 @@
 
       $("#message").val("Registering");
       var passport = $("#passport").val();
-      if (passport == null || passport.trim().length == 0) {
+      if (passport === null || passport.trim().length === 0) {
         $("#message").val("Passport field is required");
         return;
       }
       var name = $("#name").val();
-      if (name == null || name.trim().length == 0) {
+      if (name === null || name.trim().length === 0) {
         $("#message").val("Name field is required");
         return;
       }
       var dob = $("#dob").val();
-      if (dob == null || dob.trim().length == 0) {
+      if (dob === null || dob.trim().length === 0) {
         $("#message").val("Please select date of birth");
         return;
       }
       var nationality = $("#nationality").val();
-      if (nationality == null || nationality.trim().length == 0) {
+      if (nationality === null || nationality.trim().length === 0) {
         $("#message").val("Please select Nationality");
         return;
       }
@@ -272,7 +272,7 @@
     });
 
     jQuery.validator.addMethod("exactlength", function (value, element, param) {
-      return this.optional(element) || value.length == param;
+      return this.optional(element) || value.length === param;
     }, $.validator.format("Please enter exactly {0} characters."));
 
     jQuery.validator.addMethod("fullname", function (value, element) {

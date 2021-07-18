@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { Button, Icon, Grid, InputAdornment, IconButton, SvgIcon } from "@material-ui/core";
+import { Button, Icon, InputAdornment, SvgIcon } from "@material-ui/core";
 
 import "date-fns";
 
@@ -8,8 +8,6 @@ import { getCustomerList, addCustomerLocation } from "../../redux/actions/Custom
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { withStyles } from "@material-ui/styles";
-import SearchField from "react-search-field";
-import Visibility from "@material-ui/icons/Visibility";
 import { Search as SearchIcon } from "react-feather";
 
 class Viewdataform extends Component {
@@ -28,8 +26,6 @@ class Viewdataform extends Component {
 
   handleLocationModal = (location) => {
     this.props.handleOpen(location);
-
-    // this.props.handleClose();
   };
 
   handleViewdataModalclose = (event) => {
@@ -37,7 +33,7 @@ class Viewdataform extends Component {
   };
 
   render() {
-    const { filter, data } = this.state;
+    const { filter } = this.state;
     const { locations } = this.props;
     const lowercasedFilter = filter.toLowerCase();
     const filteredData = locations.filter((item) => {

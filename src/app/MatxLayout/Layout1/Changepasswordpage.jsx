@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import {
   Button,
-  TextField,
   FormControl,
   Typography,
   InputAdornment,
@@ -24,7 +23,6 @@ import { ValidatorForm } from "react-material-ui-form-validator";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import history from "history.js";
-import { Text } from "recharts";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -108,8 +106,8 @@ class Changepasswordpage extends Component {
   };
 
   UNSAFE_componentWillReceiveProps(nextProp) {
-    if (nextProp.login.changepwdSuccess != null) {
-      if (nextProp.login.changepwdSuccess == true && this.state.password == this.state.confirmPassword) {
+    if (nextProp.login.changepwdSuccess !== null) {
+      if (nextProp.login.changepwdSuccess === true && this.state.password === this.state.confirmPassword) {
         setTimeout(() => {
           this.props.handleClose();
           history.push("/login");
@@ -146,18 +144,7 @@ class Changepasswordpage extends Component {
   };
 
   render() {
-    let {
-      confirmPassword,
-      password,
-      oldPassword,
-
-      showPassword,
-      showConfirmPassword,
-      showOldPassword,
-      openSnackBar,
-      success,
-      message
-    } = this.state;
+    let { showPassword, showConfirmPassword, showOldPassword, openSnackBar, success, message } = this.state;
     let { classes, loading } = this.props;
     let severity = success ? "success" : "error";
 

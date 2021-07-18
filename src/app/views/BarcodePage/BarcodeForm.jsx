@@ -8,7 +8,6 @@ import { PropTypes } from "prop-types";
 import { withStyles } from "@material-ui/styles";
 import Dropzone from "./Dropzone";
 import MuiAlert from "@material-ui/lab/Alert";
-import history from "history.js";
 import ReactApexChart from "react-apexcharts";
 
 function Alert(props) {
@@ -26,7 +25,7 @@ class BarcodeForm extends Component {
   };
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.barCode.message != null && nextProps.barCode.severity != null) {
+    if (nextProps.barCode.message !== null && nextProps.barCode.severity !== null) {
       this.setState({
         ...this.state,
         openSnackBar: true,
@@ -34,7 +33,7 @@ class BarcodeForm extends Component {
         severity: nextProps.barCode.severity,
         barcodeRes: nextProps.barCode.barcodeRes
       });
-      // if (nextProps.barCode.severity == "success") {
+      // if (nextProps.barCode.severity === "success") {
       //   setTimeout(() => {
       //     this.props.handleClose();
       //     history.push({
