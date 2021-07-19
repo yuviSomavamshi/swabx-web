@@ -3,7 +3,6 @@ import NotFound from "./NotFound";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
 import Otppage from "./Otppage";
-import ScanCodeView from "./qrcode/ScanCodeView";
 
 const settings = {
   activeLayout: "layout1",
@@ -46,11 +45,6 @@ const sessionRoutes = [
   {
     path: "/OTP-verification",
     component: Otppage,
-    settings
-  },
-  {
-    path: "/webtimer",
-    component: ScanCodeView,
     settings
   },
   {

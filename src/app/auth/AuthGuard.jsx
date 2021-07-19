@@ -19,7 +19,7 @@ class AuthGuard extends Component {
     //this.redirectRoute(this.props);
     //}
     let user = localStorage.getItem("auth_user");
-    if (user === null) {
+    if (user == null) {
       /*this.props.history.push({
         pathname: '/login'
       });
@@ -34,7 +34,7 @@ class AuthGuard extends Component {
     //this.redirectRoute(this.props);
     //}
     let user = localStorage.getItem("auth_user");
-    if (user === null) {
+    if (user == null) {
       this.props.history.push({
         pathname: "/login"
       });
