@@ -39,7 +39,7 @@ export const deleteBarcode = (id) => {
       Authorization: "Bearer " + token
     };
     axios
-      .delete(url + "/barcode/" + id, {
+      .post(url + "/barcode/" + id + "/delete", {
         headers: headers
       })
       .then((res) => {
